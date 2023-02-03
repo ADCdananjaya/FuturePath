@@ -42,4 +42,25 @@ const features = [
     }
 ]
 
-export default { navLinks, features };
+const feedBacks = [
+    {
+        id: "ld",
+        name: "Lucifer Devon",
+        message: "I was struggling to find an internship that aligned with my interests and skills, but FuturePath made it so easy!",
+        position: "Undergraduate"
+    },
+    {
+        id: "mm",
+        name: "Maneesha Maduranga",
+        message: "The personalized recommendations were spot-on, and I was able to secure an internship.",
+        position: "Undergraduate"
+    },
+    {
+        id: "lp",
+        name: "Lahiru Prasanna",
+        message: "The communication tools made the process seamless, and I gained so much valuable experience and knowledge.",
+        position: "Undergraduate"
+    }
+]
+
+export default { navLinks, features, feedBacks };

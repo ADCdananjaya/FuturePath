@@ -8,6 +8,9 @@ function App() {
       </div>
       <components.Hero />
       <components.Empower />
+      <components.Intern />
+      <components.Communication />
+      <components.Testimonials />
     </div>
   );
 }
