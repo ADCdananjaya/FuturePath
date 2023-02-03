@@ -6,11 +6,8 @@ function App() {
       <div className="px-6 sm:px-16 w-full">
           <components.Navbar />
       </div>
-      <div className="w-full">
-        <components.Hero />
-      </div>
-
-
+      <components.Hero />
+      <components.Empower />
     </div>
   );
 }

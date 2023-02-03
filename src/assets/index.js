@@ -4,5 +4,8 @@ import intern from "./InternshipImage.png";
 import communicate from "./CommunicateImage.png";
 import menu from "./menu.png";
 import close from "./close.png";
+import send from "./Send.svg";
+import shield from "./Shield.svg";
+import star from "./Star.svg";
 
-export default { logo, hero, intern, communicate, menu, close };
+export default { logo, hero, intern, communicate, menu, close, send, shield, star };
