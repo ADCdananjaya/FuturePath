@@ -63,4 +63,23 @@ const feedBacks = [
     }
 ]
 
-export default { navLinks, features, feedBacks };
+const socials = [
+    {
+        id: "fb",
+        image: "fb"
+    },
+    {
+        id: "insta",
+        image: "insta"
+    },
+    {
+        id: "ld",
+        image: "linkedin"
+    },
+    {
+        id: "tw",
+        image: "twitter"
+    }
+]
+
+export default { navLinks, features, feedBacks, socials };

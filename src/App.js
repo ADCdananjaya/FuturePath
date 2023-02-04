@@ -11,6 +11,7 @@ function App() {
       <components.Intern />
       <components.Communication />
       <components.Testimonials />
+      <components.Footer />
     </div>
   );
 }
