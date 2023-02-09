@@ -12,5 +12,7 @@ import fb from "./facebook.svg";
 import twitter from "./twitter.svg";
 import insta from "./instagram.svg";
 import linkedin from "./linkedin.svg";
+import contactImage from "./contactImage.png";
+import question from "./question.png";
 
-export default { logo, hero, intern, communicate, menu, close, send, shield, star, quote, fb, twitter, linkedin, insta  };
+export default { logo, hero, intern, communicate, menu, close, send, shield, star, quote, fb, twitter, linkedin, insta, contactImage, question  };
