@@ -14,5 +14,9 @@ import insta from "./instagram.svg";
 import linkedin from "./linkedin.svg";
 import contactImage from "./contactImage.png";
 import question from "./question.png";
+import candidateLoginImage from "./CanLimage.png";
+import candidateSignImage from "./CanSimage.png"
+import companyLoginImage from "./ComLimage.png";
+import companySignImage from "./ComSimage.png";
 
-export default { logo, hero, intern, communicate, menu, close, send, shield, star, quote, fb, twitter, linkedin, insta, contactImage, question  };
+export default { logo, hero, intern, communicate, menu, close, send, shield, star, quote, fb, twitter, linkedin, insta, contactImage, question, candidateLoginImage, candidateSignImage, companyLoginImage, companySignImage };

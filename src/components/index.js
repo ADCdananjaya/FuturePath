@@ -8,5 +8,9 @@ import Testimonials from "./testimonials";
 import Footer from "./footer";
 import ContactForm from "./contactForm";
 import FAQ from "./faq";
+import WelcomeCard from "./welcomeCard";
+import LoginForm from "./loginForm";
+import RegForm from "./registerForm";
+import FormButton from "./formButton";
 
-export default { Navbar, Hero, Empower, StartButton, Intern, Communication, Testimonials, Footer, ContactForm, FAQ };
+export default { Navbar, Hero, Empower, StartButton, Intern, Communication, Testimonials, Footer, ContactForm, FAQ, WelcomeCard, LoginForm, RegForm, FormButton };

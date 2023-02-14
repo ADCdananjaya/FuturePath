@@ -10,10 +10,6 @@ const navLinks = [
     {
         id: "contact",
         title: "Contact Us"
-    },
-    {
-        id: "start",
-        title: "Get Started"
     }
 ]
 
@@ -111,4 +107,39 @@ const socials = [
     }
 ]
 
-export default { navLinks, features, feedBacks, socials, faqs };
+const welcomes = [
+    {
+        status: "canLog",
+        title: "Sign In to FuturePath",
+        description: "Search for internship opportunities across various industries and locations.",
+        image: "candidateLoginImage",
+        buttonText: "Login",
+        navigate: "/candidate_register"
+    },
+    {
+        status: "comLog",
+        title: "Sign In to FuturePath",
+        description: "Search for internship opportunities across various industries and locations.",
+        image: "companyLoginImage",
+        buttonText: "Login",
+        navigate: "/company_register"
+    },
+    {
+        status: "canReg",
+        title: "Sign Up to FuturePath",
+        description: "We helps to students find internships would be a job search platform specifically designed for students seeking work experience in their field of study.",
+        image: "candidateSignImage",
+        buttonText: "Register",
+        navigate: "/candidate_login"
+    },
+    {
+        status: "comReg",
+        title: "Sign Up to FuturePath",
+        description: "By posting your internship opportunity on our website, you will reach a large pool of qualified candidates and be able to find the perfect intern for your company.",
+        image: "companySignImage",
+        buttonText: "Register",
+        navigate: "/company_login"
+    }
+]
+
+export default { navLinks, features, feedBacks, socials, faqs, welcomes };
