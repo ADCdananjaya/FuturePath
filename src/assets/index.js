@@ -18,5 +18,8 @@ import candidateLoginImage from "./CanLimage.png";
 import candidateSignImage from "./CanSimage.png"
 import companyLoginImage from "./ComLimage.png";
 import companySignImage from "./ComSimage.png";
+import company from "./company.png";
+import candidate from "./candidate.png";
+import notFound from "./404Image.png";
 
-export default { logo, hero, intern, communicate, menu, close, send, shield, star, quote, fb, twitter, linkedin, insta, contactImage, question, candidateLoginImage, candidateSignImage, companyLoginImage, companySignImage };
+export default { logo, hero, intern, communicate, menu, close, send, shield, star, quote, fb, twitter, linkedin, insta, contactImage, question, candidateLoginImage, candidateSignImage, companyLoginImage, companySignImage, company, candidate, notFound };

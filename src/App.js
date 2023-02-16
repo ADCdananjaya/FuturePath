@@ -13,6 +13,7 @@ function App() {
         <Route path="/candidate_register" element={ <pages.RegisterPage status="canReg" />} />
         <Route path="/company_login" element={ <pages.LoginPage status="comLog" />} />
         <Route path="/company_register" element={ <pages.RegisterPage status="comReg" />} />
+        <Route path="*" element={ <pages.NotFound />} />
       </Routes>
     </Router>
   );

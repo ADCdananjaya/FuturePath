@@ -10,6 +10,10 @@ const navLinks = [
     {
         id: "contact",
         title: "Contact Us"
+    },
+    {
+        id: "start",
+        title: "Get Started"
     }
 ]
 
