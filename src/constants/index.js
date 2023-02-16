@@ -146,4 +146,95 @@ const welcomes = [
     }
 ]
 
-export default { navLinks, features, feedBacks, socials, faqs, welcomes };
+const aboutCompany = [
+    {
+        id: "mission",
+        title: "Mission",
+        description: '"Our mission at FuturePath is to empower university students and local companies to achieve their full potential through meaningful internships. We believe in creating a bridge between education and industry by connecting students with local companies and providing a platform that fosters collaboration and growth."',
+        image: "companyMisson"
+    },
+    {
+        id: "history",
+        title: "Company History",
+        description: 'Combining cutting-edge technology with years of experience in both the education and corporate sectors, they created a unique solution that offers personalized recommendations and efficient communication tools.',
+        image: "companyHistory"
+    },
+    {
+        id: "focus",
+        title: "Customer Focus",
+        description: 'At FuturePath, our customers are at the center of everything we do. We are dedicated to providing an exceptional experience for both university students and local companies by delivering personalized recommendations, efficient communication tools, and a user-friendly platform.',
+        image: "customerFocus"
+    },
+    {
+        id: "values",
+        title: "Company Values",
+        description: [
+            {
+                index: 0,
+                value: "Empowerment: We believe in empowering university students and local companies to achieve their full potential by providing them with the tools and resources they need to succeed."
+            },
+            {
+                index: 1,
+                value: "Integrity: We believe in conducting business with honesty, transparency, and a strong commitment to ethical principles."
+            },
+            {
+                index: 2,
+                value: "Innovation: We are dedicated to constantly innovating and improving our platform to deliver the best possible experience for our customers."
+            }
+        ],
+        image: "customerValues"
+    }
+]
+
+const members = [
+    {
+        id: 0,
+        name: "A.D.C. Danajaya",
+        position: "Founder & SEO",
+        image: "male"
+    },
+    {
+        id: 1,
+        name: "P.B.M. Maduranga",
+        position: "Head of Engineering",
+        image: "male"
+    },
+    {
+        id: 2,
+        name: "R.A.D.L. Prasanna",
+        position: "Chief Operating office",
+        image: "male"
+    },
+    {
+        id: 3,
+        name: "T.P. Kitulagoda",
+        position: "Head of Sales",
+        image: "female"
+    },
+    {
+        id: 4,
+        name: "K.M.N.D. Senavirathna",
+        position: "Head of Product",
+        image: "male"
+    },
+    {
+        id: 5,
+        name: "D.G.K.K. Dhanasekara",
+        position: "Product Designer",
+        image: "male"
+    },
+    {
+        id: 6,
+        name: "W.A.G. Nawanjana",
+        position: "Engineering Manager",
+        image: "female"
+    },
+    {
+        id: 7,
+        name: "W.K.H. Udayangani",
+        position: "Marketing Manager",
+        image: "female"
+    },
+]
+
+export default { navLinks, features, feedBacks, socials, faqs, welcomes, aboutCompany, members };

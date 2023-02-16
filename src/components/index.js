@@ -12,5 +12,7 @@ import WelcomeCard from "./welcomeCard";
 import LoginForm from "./loginForm";
 import RegForm from "./registerForm";
 import FormButton from "./formButton";
+import MissonOrFocus from "./missonOrFocus";
+import GroupMembers from "./groupMembers";
 
-export default { Navbar, Hero, Empower, StartButton, Intern, Communication, Testimonials, Footer, ContactForm, FAQ, WelcomeCard, LoginForm, RegForm, FormButton };
+export default { Navbar, Hero, Empower, StartButton, Intern, Communication, Testimonials, Footer, ContactForm, FAQ, WelcomeCard, LoginForm, RegForm, FormButton, MissonOrFocus, GroupMembers };

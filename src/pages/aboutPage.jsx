@@ -6,7 +6,11 @@ const AboutPage = () => {
             <div className="px-6 sm:px-16 w-full">
                 <components.Navbar />
             </div>
-            <p className="text-9xl text-slate-200">About page</p>
+            <components.MissonOrFocus id="mission" />
+            <components.MissonOrFocus id="history" />
+            <components.MissonOrFocus id="focus" />
+            <components.MissonOrFocus id="values" />
+            <components.GroupMembers />
             <components.Footer />
         </div>
     );

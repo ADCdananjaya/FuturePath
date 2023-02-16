@@ -25,7 +25,7 @@ const Navbar = () => {
                     className="w-8 cursor-pointer" 
                     onClick={() => setToggle((prev) => !prev)}
                 />
-                <div className={`${toggle ? "flex": "hidden"} w-28 h-auto absolute top-16 right-2 bg-black-gradient sidebar rounded-xl px-3 py-1 justify-center`}>
+                <div className={`${toggle ? "flex": "hidden"} w-28 h-auto absolute top-16 right-2 bg-black-gradient sidebar rounded-xl px-3 py-1 justify-center z-[10]`}>
                     <ul className="flex flex-col gap-2 text-slate-300 text-normal text-[14px] mb-2 items-center">
                         {constants.navLinks.map(item => (
                             <li key={item.id} className="hover:text-slate-50 ease-in-out">
