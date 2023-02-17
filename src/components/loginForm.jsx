@@ -19,7 +19,7 @@ const LoginForm = (props) => {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({type: props.status, name: name, password: password})
+                body: JSON.stringify({name: name, password: password})
             })
             .then(res => {
                 if (!res.ok) {

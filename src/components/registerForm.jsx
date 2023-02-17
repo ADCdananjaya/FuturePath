@@ -22,14 +22,19 @@ const RegForm = (props) => {
             const studentUrl = "https://127.0.0.1:8000/api/v1/student";
 
             console.log(formData);
-            navigate(`${props.status === "comReg"? "/company_login": "/candidate_login"}`);
 
             fetch(`${props.status === "comReg"? companyUrl: studentUrl}`, { 
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(formData)
+                // body: JSON.stringify(formData)
+                body: JSON.stringify({
+                    username: formData.name,
+                    email: formData.email,
+                    password: formData.password,
+                    password2: formData.password
+                })
             })
             .then(res => {
                 if (!res.ok) {
@@ -42,7 +47,7 @@ const RegForm = (props) => {
                         number: "",
                         password: "",
                     };
-                    // navigate(`${props.status === "comReg"? "/company_login": "/candidate_login"}`);
+                    navigate(`${props.status === "comReg"? "/company_login": "/candidate_login"}`);
                 }
             })
             .catch(err => {
