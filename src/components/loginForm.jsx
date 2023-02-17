@@ -19,7 +19,7 @@ const LoginForm = (props) => {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({name: name, password: password})
+                body: JSON.stringify({username: name, password: password})
             })
             .then(res => {
                 if (!res.ok) {
@@ -30,9 +30,11 @@ const LoginForm = (props) => {
                     setPassword = "";
 
                     const { token } = res.json();
+                    const { sucess } = res.json();
+
                     localStorage.setItem('jwt', token);
 
-                    props.setAuthenticated(true);
+                    props.setAuthenticated(sucess);
                     props.setLoginType(props.status);
                     navigate("/dashboard");
                 }
