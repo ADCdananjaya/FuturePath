@@ -13,48 +13,48 @@ const RegForm = (props) => {
         password: "",
     })
 
-    const handleSubmit = () => {
-        if (formData.email === "" || formData.name === "" || formData.number === "" || formData.password === "") {
-            console.log("Input field are empty!")
+    const handleSubmit = async () => {
+        if (
+          formData.email === "" ||
+          formData.name === "" ||
+          formData.number === "" ||
+          formData.password === ""
+        ) {
+          console.log("Input field are empty!");
+        } else {
+          const companyUrl = "http://127.0.0.1:8000/api/v1/signup/company";
+          const studentUrl = "http://127.0.0.1:8000/api/v1/signup/student";
+    
+          try {
+            const responce = await axios.post(
+              `${props.status === "comReg" ? companyUrl : studentUrl}`,
+              {
+                username: formData.name,
+                email: formData.email,
+                password: formData.password,
+                password2: formData.password,
+              }
+            );
+            if (responce.data.sucess) {
+              //Store Token
+              //Navigate User To DashBoard
+              console.log(responce.data.sucess);
+              navigate(
+                `${
+                  props.status === "comReg" ? "/company_login" : "/candidate_login"
+                }`
+              );
+            }
+          } catch (error) {
+            if (error.response) {
+              //Display error msg
+              console.log(error.response.data.email);
+              console.log(error.response.data.username);
+              console.log(error.response.data.password);
+            }
+          }
         }
-        else {
-            const companyUrl = "https://127.0.0.1:8000/api/v1/company";
-            const studentUrl = "https://127.0.0.1:8000/api/v1/student";
-
-            console.log(formData);
-
-            fetch(`${props.status === "comReg"? companyUrl: studentUrl}`, { 
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                // body: JSON.stringify(formData)
-                body: JSON.stringify({
-                    username: formData.name,
-                    email: formData.email,
-                    password: formData.password,
-                    password2: formData.password
-                })
-            })
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error("Network issue");
-                }
-                else {
-                    formData = {
-                        email: "",
-                        name: "",
-                        number: "",
-                        password: "",
-                    };
-                    navigate(`${props.status === "comReg"? "/company_login": "/candidate_login"}`);
-                }
-            })
-            .catch(err => {
-                console.log("Error: ", err)
-            });
-        }
-    }
+      };
 
     const handleChange = (e) => {
         setFormData(prev => ({...prev, [e.target.name]: e.target.value}));
