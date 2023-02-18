@@ -9,40 +9,32 @@ const LoginForm = (props) => {
     const [ password, setPassword ] = useState("");
     const navigate = useNavigate();
 
-    const onSubmit = () => {
+    const onSubmit = async() => {
         if (name === "" || password === "") {
             console.log("input fields are empty!");
         }
         else {
-            fetch("http://127.0.0.1:8000/api/v1/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({username: name, password: password})
-            })
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error("Network issue");
-                }
-                else {
-                    setName = "";
-                    setPassword = "";
-
-                    const { token } = res.json();
-                    const { sucess } = res.json();
-
-                    localStorage.setItem('jwt', token);
+            try {
+                const responce = await axios.post("http://127.0.0.1:8000/api/v1/login",{
+                    username:name,
+                    password:password
+                })
+                
+                if(responce.data){
+                    let {token,sucess,} = responce.data
+                    localStorage.setItem('Token', token);
 
                     props.setAuthenticated(sucess);
                     props.setLoginType(props.status);
                     navigate("/dashboard");
                 }
-            })
-            .catch (err => {
-                console.log({type: props.status, name: name, password: password});
-                console.log(err);
-            })
+                
+            } catch (error) {
+                if (error.response) {
+                    //Display error msg
+                    console.log(error.response.data.non_field_errors);
+                }
+            }
         }
     }
 
