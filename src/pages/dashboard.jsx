@@ -1,7 +1,9 @@
+import components from "../components";
+
 const Dashboard = (props) => {
     return ( 
-        <div className="text-9xl">
-            {props.userType === "canLog" ? "candidate login": "company login"}
+        <div className="w-full bg-[#000411]">
+            {props.userType === "canLog" ? <components.Suggestions user="candidate" />: <components.Suggestions user="company"/>}
         </div>
     );
 }

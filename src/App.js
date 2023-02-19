@@ -4,7 +4,7 @@ import components from "./components";
 import { useState } from "react";
 
 function App() {
-  const [ isAuthenticated, setIsAuthenticated ] = useState(false);
+  const [ isAuthenticated, setIsAuthenticated ] = useState(true);
   const [ loginType, setLoginType ] = useState("");
 
   return (
