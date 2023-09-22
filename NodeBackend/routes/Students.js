@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
   const salt = await bcrypt.genSalt(8);
   const password = await bcrypt.hash(req.body.password, salt);
 
-  user = await new User({
+  const student = await new Student({
     userName: req.body.name,
     email: req.body.email,
     phoneNumber: req.body.phoneNumber,
@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
     password,
   }).save();
 
-  const { _id, userName, email, profilePicture, phoneNumber } = user;
+  const { _id, userName, email, profilePicture, phoneNumber } = student;
   res.status(201).json({ _id, userName, email, profilePicture, phoneNumber });
 });
 
