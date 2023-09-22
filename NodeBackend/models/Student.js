@@ -15,12 +15,12 @@ const StudentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  phoneNumber:{
-    type:string,
+  phoneNumber: {
+    type: String,
   },
   profilePicture: {
     type: String,
-  }
+  },
 });
 
 const Student = mongoose.model('Student', StudentSchema);

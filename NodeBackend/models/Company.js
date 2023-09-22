@@ -11,20 +11,31 @@ const CompanySchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  companyName: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   password: {
     type: String,
     required: true,
   },
-  phoneNumber:{
-    type:string,
-  },
-  profilePicture: {
+  phoneNumber: {
     type: String,
-  }
+  },
+  companyLogo: {
+    type: String,
+  },
+  location: {
+    type: String,
+  },
+  description: {
+    type: String,
+  },
 });
 
-const Student = mongoose.model('Student', StudentSchema);
+const Company = mongoose.model('Company', CompanySchema);
 
 module.exports = {
-  Student,
+  Company,
 };
