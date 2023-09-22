@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcrypt");
 const { Student } = require("../models/Student");
 
 router.get("/", async (req, res) => {
@@ -11,6 +12,22 @@ router.get("/", async (req, res) => {
     console.log(ex);
     res.status(400).send("Something went wrong!");
   }
+});
+
+router.post("/", async (req, res) => {
+  const salt = await bcrypt.genSalt(8);
+  const password = await bcrypt.hash(req.body.password, salt);
+
+  user = await new User({
+    userName: req.body.name,
+    email: req.body.email,
+    phoneNumber: req.body.phoneNumber,
+    profilePicture: req.body.profilePicture,
+    password,
+  }).save();
+
+  const { _id, userName, email, profilePicture, phoneNumber } = user;
+  res.status(201).json({ _id, userName, email, profilePicture, phoneNumber });
 });
 
 module.exports = router;
