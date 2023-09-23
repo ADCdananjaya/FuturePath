@@ -72,6 +72,12 @@ CompanySchema.methods.generateToken = function () {
   return token;
 };
 
+//Compare Password
+CompanySchema.methods.comparePassword = async function (passwords) {
+  let result = await bcrypt.compare(passwords, this.password);
+  return result;
+};
+
 const Company = mongoose.model('Company', CompanySchema);
 
 module.exports = {
