@@ -62,12 +62,7 @@ const signInCompany = async (req, res) => {
   });
 };
 
-const signOutCompany = async (req, res) => {
-  
-};
-
 module.exports = {
   signInCompany,
   signUpCompany,
-  signOutCompany,
 };
