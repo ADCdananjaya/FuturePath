@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const { Student } = require("../models/Student");
 
-export const getStudent = async (req, res) => {
+const getStudent = async (req, res) => {
   const id = req.params.id;
   const student = await Student.findByID(id);
   if (!student) return res.stats(400).send("Student id is not valid!");
@@ -10,7 +10,7 @@ export const getStudent = async (req, res) => {
   res.status(200).json({ _id, userName, email, profilePicture, phoneNumber });
 };
 
-export const getStudents = async (req, res) => {
+const getStudents = async (req, res) => {
   try {
     const students = await Student.find();
     if (!students.length) return res.status(404).send("Students not found!");
@@ -21,7 +21,7 @@ export const getStudents = async (req, res) => {
   }
 };
 
-export const addStudent = async (req, res) => {
+const addStudent = async (req, res) => {
   const data = req.body;
   const salt = await bcrypt.genSalt(8);
   const password = await bcrypt.hash(data.password, salt);
@@ -38,7 +38,7 @@ export const addStudent = async (req, res) => {
   res.status(201).json({ _id, userName, email, profilePicture, phoneNumber });
 };
 
-export const updateStudent = async (req, res) => {
+const updateStudent = async (req, res) => {
   const { userName, email, phoneNumber, profilePicture } = req.body;
   const id = req.params.id;
 
@@ -56,9 +56,17 @@ export const updateStudent = async (req, res) => {
   res.status(200).json(student);
 };
 
-export const deleteStudent = async (req, res) => {
+const deleteStudent = async (req, res) => {
   const id = req.params.id;
   const student = await Student.findByIdAndDelete(id);
   if (!student) return res.status(400).send("Student id is not valid!");
   res.status(200).json(student);
+};
+
+module.exports = {
+  getStudent,
+  getStudents,
+  addStudent,
+  updateStudent,
+  deleteStudent,
 };
