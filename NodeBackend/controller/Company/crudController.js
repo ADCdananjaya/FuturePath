@@ -23,6 +23,7 @@ const getSingleCompany = async (req, res) => {
   });
 };
 
+//Only For Authorized User
 const updateCompany = async (req, res) => {
   const { id } = req.params;
   const { phoneNumber, location, description } = req.body;
@@ -36,7 +37,7 @@ const updateCompany = async (req, res) => {
   company.location = location;
   company.description = description;
 
-  let updatedCompany = await company.save();
+  await company.save();
 
   res.status(200).json({
     sucess: true,
@@ -44,14 +45,25 @@ const updateCompany = async (req, res) => {
   });
 };
 
-const deleteCompany = (req, res) => {
-  res.send('Delete Company');
+//Only For Authorized User
+const deleteCompany = async (req, res) => {
+  const { id } = req.params;
+  let company = await Company.findById(id);
+  if (!company) {
+    res.status(404);
+    throw Error('No Company Found with given Id');
+  }
+  await Company.findByIdAndDelete(id);
+
+  res.status(200).json({
+    sucess: true,
+    data: 'Deleted Sucessfull',
+  });
 };
 
 module.exports = {
   getAllCompany,
   getSingleCompany,
-
   updateCompany,
   deleteCompany,
 };
