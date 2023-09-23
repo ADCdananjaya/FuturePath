@@ -31,7 +31,7 @@ const signUpCompany = async (req, res) => {
 
   let token = company.generateToken();
 
-  res.status(200).json({
+  res.status(201).json({
     sucess: true,
     token: token,
   });

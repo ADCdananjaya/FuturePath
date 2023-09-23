@@ -7,7 +7,6 @@ const {
   getSingleCompany,
   updateCompany,
   deleteCompany,
-  createCompany,
 } = require('../../controller/Company/crudController');
 
 //Public Routes
@@ -15,11 +14,9 @@ router.get('/getAllCompany', getAllCompany);
 //Public Routes
 router.get('/getSingleCompany/:id', getSingleCompany);
 
-//Only Admin User
-router.post('/createCompany', createCompany);
-
-router.patch('/updateCompnay/:id', updateCompany);
-
-router.delete('/deleteCompnay/:id', deleteCompany);
+//Private Routes
+router.patch('/updateCompany/:id', updateCompany);
+//Private Routes
+router.delete('/deleteCompany/:id', deleteCompany);
 
 module.exports = router;
