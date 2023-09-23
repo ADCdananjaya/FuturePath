@@ -13,6 +13,9 @@ const app = express();
 const companyCrudRoutes = require('./routes/Company/crudRoutes');
 const companyAuthRoutes = require('./routes/Company/authRoutes');
 
+//Middleware
+const errorHandler = require('./middleware/errorHandler');
+
 const students = require('./routes/Students');
 const auth = require('./routes/AuthRoutes');
 
@@ -27,5 +30,7 @@ app.use('/api/company', companyCrudRoutes);
 app.use('/api/company/auth', companyAuthRoutes);
 
 app.use('/api/auth', auth);
+
+app.use(errorHandler);
 
 app.listen(port, () => console.log(`App listen on port ${port}!`));

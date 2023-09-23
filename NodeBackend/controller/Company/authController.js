@@ -6,6 +6,7 @@ const signInCompany = async (req, res) => {
   const { error } = companyValidator(userName, email, companyName, password);
 
   if (error) {
+    res.status(400);
     throw new Error(error.message);
   }
 };
