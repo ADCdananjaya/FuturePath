@@ -3,7 +3,7 @@ const getAllCompany = (req, res) => {
 };
 
 const getSingleCompany = (req, res) => {
-  res.send('Get Single Company', +req.params);
+  res.send('Get Single Company');
 };
 
 const createCompany = (req, res) => {
@@ -23,5 +23,5 @@ module.exports = {
   getSingleCompany,
   createCompany,
   updateCompany,
-  deleteCompany,
+  deleteCompany
 };

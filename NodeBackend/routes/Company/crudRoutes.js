@@ -8,13 +8,14 @@ const {
   updateCompany,
   deleteCompany,
   createCompany,
-} = require('../controller/Companies');
-//Get All Company
+} = require('../../controller/Company/crudController');
 
+//Public
 router.get('/getAllCompany', getAllCompany);
-
+//Public
 router.get('/getSingleCompany/:id', getSingleCompany);
 
+//Only Admin User
 router.post('/createCompany', createCompany);
 
 router.patch('/updateCompnay/:id', updateCompany);
