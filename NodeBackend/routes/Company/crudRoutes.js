@@ -10,9 +10,9 @@ const {
   createCompany,
 } = require('../../controller/Company/crudController');
 
-//Public
+//Public Routes
 router.get('/getAllCompany', getAllCompany);
-//Public
+//Public Routes
 router.get('/getSingleCompany/:id', getSingleCompany);
 
 //Only Admin User

@@ -1,9 +1,26 @@
-const getAllCompany = (req, res) => {
-  res.send('Get All Company');
+const { Company } = require('../../models/Company');
+
+const getAllCompany = async (req, res) => {
+  const company = await Company.find({}).select('-password -userName');
+  res.status(200).json({
+    sucess: true,
+    data: company,
+  });
 };
 
-const getSingleCompany = (req, res) => {
-  res.send('Get Single Company');
+const getSingleCompany = async (req, res) => {
+  const { id } = req.params;
+
+  const company = await Company.findById(id).select('-password -userName');
+  if (!company) {
+    res.status(404);
+    throw Error('No Company Found With Given Id');
+  }
+
+  res.status(200).json({
+    sucess: true,
+    data: company,
+  });
 };
 
 const createCompany = (req, res) => {
@@ -23,5 +40,5 @@ module.exports = {
   getSingleCompany,
   createCompany,
   updateCompany,
-  deleteCompany
+  deleteCompany,
 };
