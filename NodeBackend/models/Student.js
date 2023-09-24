@@ -26,7 +26,6 @@ const StudentSchema = new mongoose.Schema({
   },
 });
 
-
 StudentSchema.methods.generateAuthToken = function () {
   const token = jwt.sign(
     {
@@ -61,6 +60,12 @@ StudentSchema.pre('save', async function (next) {
   }
   next();
 });
+
+//Compare password
+StudentSchema.methods.comparePassword = async function (passwords) {
+  let result = await bcrypt.compare(passwords, this.password);
+  return result;
+};
 
 const Student = mongoose.model('Student', StudentSchema);
 

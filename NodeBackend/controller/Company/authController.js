@@ -29,10 +29,17 @@ const signUpCompany = async (req, res) => {
 
   company = await Company.create({ userName, email, companyName, password });
 
+  let data = {
+    id: company._id,
+    userName: company.userName,
+    companyName: company.companyName,
+  };
+
   let token = company.generateToken();
 
   res.status(201).json({
     sucess: true,
+    data: data,
     token: token,
   });
 };
@@ -56,8 +63,15 @@ const signInCompany = async (req, res) => {
 
   let token = company.generateToken();
 
+  let data = {
+    id: company._id,
+    userName: company.userName,
+    companyName: company.companyName,
+  };
+
   res.status(200).json({
     sucess: true,
+    data: data,
     token: token,
   });
 };
