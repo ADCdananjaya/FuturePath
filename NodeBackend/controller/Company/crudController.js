@@ -1,11 +1,13 @@
 const { Company } = require('../../models/Company');
 
 const getAllCompany = async (req, res) => {
+
   const company = await Company.find({}).select('-password -userName');
   res.status(200).json({
     sucess: true,
     data: company,
   });
+  
 };
 
 const getSingleCompany = async (req, res) => {
@@ -61,9 +63,14 @@ const deleteCompany = async (req, res) => {
   });
 };
 
+const uploadCompanyLogo = async (req, res) => {
+  res.send('Upload Logo');
+};
+
 module.exports = {
   getAllCompany,
   getSingleCompany,
   updateCompany,
   deleteCompany,
+  uploadCompanyLogo,
 };

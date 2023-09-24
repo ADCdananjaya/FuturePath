@@ -1,6 +1,6 @@
 const errorHandler = (err, req, res, next) => {
   // console.log(res);
-  //console.log(err);
+  console.log(err);
   if (err.name == 'CastError') {
     return res.status(400).json({
       sucess: false,

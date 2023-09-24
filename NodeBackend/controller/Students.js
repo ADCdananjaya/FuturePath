@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const { Student } = require('../models/Student');
+const { Student, studentValidator } = require('../models/Student');
 
 const getStudent = async (req, res) => {
   const id = req.params.id;
@@ -22,20 +22,39 @@ const getStudents = async (req, res) => {
 };
 
 const addStudent = async (req, res) => {
-  const data = req.body;
-  const salt = await bcrypt.genSalt(8);
-  const password = await bcrypt.hash(data.password, salt);
+  const { userName, email, password } = req.body;
 
-  const student = await new Student({
-    userName: data.userName,
-    email: data.email,
-    phoneNumber: data.phoneNumber,
-    profilePicture: data.profilePicture,
-    password,
-  }).save();
+  const { error } = studentValidator(userName, email, password);
 
-  const { _id, userName, email, profilePicture, phoneNumber } = student;
-  res.status(201).json({ _id, userName, email, profilePicture, phoneNumber });
+  if (error) {
+    res.status(400);
+    throw Error(error.message);
+  }
+
+  let student;
+
+  student = await Student.findOne({ email });
+
+  if (student) {
+    res.status(400);
+    throw new Error('Email Is already used');
+  }
+
+  student = await Student.create({ userName, email, password });
+
+  let data = {
+    id: student._id,
+    userName: student.userName,
+    email: student.email,
+  };
+
+  let token = student.generateAuthToken();
+
+  res.status(201).json({
+    sucess: true,
+    data: data,
+    token: token,
+  });
 };
 
 const updateStudent = async (req, res) => {
